@@ -15,5 +15,6 @@ setup(
     entry_points={
         'console_scripts': []
     },
-    license='Copyright Yelp 2015, All Rights Reserved'
+    license='Copyright Yelp 2015, All Rights Reserved',
+    include_package_data=True
 )
