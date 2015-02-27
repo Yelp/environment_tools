@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-import pkgutil
+import simplejson as json
 import os
-import yaml
+import pkgutil
 
-def _read_data_yaml(filename):
+
+def _read_data_json(filename):
     path = os.path.join('data', filename)
-    return yaml.load(pkgutil.get_data('environment_tools', path))
+    return json.loads(pkgutil.get_data('environment_tools', path))

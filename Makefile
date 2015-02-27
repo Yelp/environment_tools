@@ -18,6 +18,7 @@ clean:
 	rm -rf docs/build/*
 	rm -rf environment_tools.egg-info/
 	rm -rf .coverage
+	rm -rf .tox
 	rm -rf virtualenv_run
 	find . -name '*.pyc' -delete
 	find . -name '__pycache__' -delete
