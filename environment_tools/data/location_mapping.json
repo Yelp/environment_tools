@@ -1,3 +1,271 @@
 {
-    "todo": "TBD"
+  "corp_runtimeenv": {
+    "corp_ecosystem": {
+      "norcal-corp_superregion": {
+        "uswest1-corp_region": {
+          "uswest1bcorp_habitat": {},
+          "uswest1ccorp_habitat": {}
+        }
+      }
+    },
+    "dev_ecosystem": {
+      "everywhere-corp_superregion": {
+        "chi-corp_region": {
+          "chicorp_habitat": {}
+        },
+        "dub-corp_region": {
+          "dubcorp_habitat": {}
+        },
+        "ham-corp_region": {
+          "hamcorp_habitat": {}
+        },
+        "iad1-corp_region": {
+          "iadcorp_habitat": {}
+        },
+        "ldn-corp_region": {
+          "ldncorp_habitat": {}
+        },
+        "nyc-corp_region": {
+          "nyccorp_habitat": {}
+        },
+        "pao-corp_region": {
+          "paocorp_habitat": {}
+        },
+        "phx-corp_region": {
+          "phxcorp_habitat": {}
+        },
+        "sfolab-corp_region": {
+          "sfolabcorp_habitat": {}
+        }
+      }
+    },
+    "devc_ecosystem": {
+      "everywhere-corp_superregion": {
+        "sfo-corp_region": {
+          "sfocorp_habitat": {}
+        }
+      }
+    }
+  },
+  "dev_runtimeenv": {
+    "deva_ecosystem": {
+      "everywhere-deva_superregion": {
+        "linode-deva_region": {
+          "linode_habitat": {}
+        }
+      }
+    },
+    "devb_ecosystem": {
+      "norcal-devb_superregion": {
+        "slsjc-devb_region": {
+          "devb_habitat": {}
+        },
+        "uswest1-devb_region": {
+          "uswest1bdevb_habitat": {},
+          "uswest1cdevb_habitat": {}
+        }
+      }
+    },
+    "devc_ecosystem": {
+      "norcal-devc_superregion": {
+        "sf-devc_region": {
+          "devc_habitat": {}
+        },
+        "uswest1-devc_region": {
+          "uswest1adevc_habitat": {},
+          "uswest1cdevc_habitat": {}
+        }
+      },
+      "nova-devc_superregion": {
+        "useast1-devc_region": {
+          "useast1adevc_habitat": {},
+          "useast1bdevc_habitat": {}
+        }
+      },
+      "nweu-devc_superregion": {
+        "euwest1-devc_region": {
+          "euwest1adevc_habitat": {},
+          "euwest1bdevc_habitat": {},
+          "euwest1cdevc_habitat": {}
+        }
+      },
+      "pnw-devc_superregion": {
+        "uswest2-devc_region": {
+          "uswest2adevc_habitat": {},
+          "uswest2bdevc_habitat": {},
+          "uswest2cdevc_habitat": {}
+        }
+      }
+    },
+    "deveu_ecosystem": {
+      "nweu-deveu_superregion": {
+        "eucentral1-deveu_region": {
+          "eucentral1adeveu_habitat": {},
+          "eucentral1bdeveu_habitat": {}
+        }
+      }
+    },
+    "testopia_ecosystem": {
+      "everywhere-testopia_superregion": {
+        "bbsv-testopia_region": {
+          "bbsv_habitat": {}
+        },
+        "slsea-testopia_region": {
+          "sldev_habitat": {}
+        },
+        "slsjc-testopia_region": {
+          "sjc_habitat": {}
+        },
+        "useast1-testopia_region": {
+          "useast1atestopia_habitat": {}
+        },
+        "uswest1-testopia_region": {
+          "uswest1atestopia_habitat": {},
+          "uswest1ctestopia_habitat": {}
+        },
+        "uswest2-testopia_region": {
+          "uswest2atestopia_habitat": {},
+          "uswest2btestopia_habitat": {},
+          "uswest2ctestopia_habitat": {}
+        }
+      }
+    }
+  },
+  "eat24_runtimeenv": {
+    "eat24_ecosystem": {
+      "nova-eat24_superregion": {
+        "uswest2-eat24_region": {
+          "uswest2aeat24_habitat": {},
+          "uswest2beat24_habitat": {}
+        }
+      }
+    }
+  },
+  "prod_runtimeenv": {
+    "pcde_ecosystem": {
+      "norcal-pcde_superregion": {
+        "sfo12-pcde_region": {
+          "pcde_habitat": {}
+        }
+      },
+      "nova-pcde_superregion": {
+        "dc6-pcde_region": {
+          "pcde_habitat": {}
+        }
+      }
+    },
+    "prod_ecosystem": {
+      "deprecated-prod_superregion": {
+        "slwdc-prod_region": {
+          "slwdc_habitat": {}
+        }
+      },
+      "eu-prod_superregion": {
+        "eucentral1-prod_region": {
+          "eucentral1aprod_habitat": {},
+          "eucentral1bprod_habitat": {}
+        }
+      },
+      "norcal-prod_superregion": {
+        "sfo12-prod_region": {
+          "sfo1_habitat": {},
+          "sfo2_habitat": {}
+        },
+        "uswest1-prod_region": {
+          "uswest1aprod_habitat": {},
+          "uswest1bprod_habitat": {}
+        }
+      },
+      "nova-prod_superregion": {
+        "dc6-prod_region": {
+          "iad1_habitat": {}
+        },
+        "useast1-prod_region": {
+          "useast1aprod_habitat": {},
+          "useast1bprod_habitat": {},
+          "useast1cprod_habitat": {}
+        }
+      },
+      "pnw-prod_superregion": {
+        "uswest2-prod_region": {
+          "uswest2aprod_habitat": {},
+          "uswest2bprod_habitat": {},
+          "uswest2cprod_habitat": {}
+        }
+      }
+    }
+  },
+  "stage_runtimeenv": {
+    "stagea_ecosystem": {
+      "norcal-stagea_superregion": {
+        "uswest1-stagea_region": {
+          "uswest1bstagea_habitat": {},
+          "uswest1cstagea_habitat": {}
+        }
+      },
+      "pnw-stagea_superregion": {
+        "slsea-stagea_region": {
+          "stagea_habitat": {}
+        }
+      }
+    },
+    "stageb_ecosystem": {
+      "norcal-stageb_superregion": {
+        "slsjc-stageb_region": {
+          "stageb_habitat": {}
+        },
+        "uswest1-stageb_region": {
+          "uswest1bstageb_habitat": {},
+          "uswest1cstageb_habitat": {}
+        }
+      }
+    },
+    "stagec_ecosystem": {
+      "norcal-stagec_superregion": {
+        "sfo12-stagec_region": {
+          "stagec_habitat": {}
+        },
+        "uswest1-stagec_region": {
+          "uswest1bstagec_habitat": {}
+        }
+      }
+    },
+    "stagef_ecosystem": {
+      "norcal-stagef_superregion": {
+        "uswest1-stagef_region": {
+          "uswest1astagef_habitat": {},
+          "uswest1cstagef_habitat": {}
+        }
+      },
+      "pnw-stagef_superregion": {
+        "uswest2-stagef_region": {
+          "uswest2astagef_habitat": {},
+          "uswest2bstagef_habitat": {},
+          "uswest2cstagef_habitat": {}
+        }
+      }
+    },
+    "stageg_ecosystem": {
+      "norcal-stageg_superregion": {
+        "uswest1-stageg_region": {
+          "uswest1astageg_habitat": {},
+          "uswest1cstageg_habitat": {}
+        }
+      },
+      "pnw-stageg_superregion": {
+        "uswest2-stageg_region": {
+          "uswest2astageg_habitat": {},
+          "uswest2bstageg_habitat": {},
+          "uswest2cstageg_habitat": {}
+        }
+      }
+    },
+    "stagespam_ecosystem": {
+      "pnw-stagespam_superregion": {
+        "slsea-stagespam_region": {
+          "stagespam_habitat": {}
+        }
+      }
+    }
+  }
 }

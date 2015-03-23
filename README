@@ -2,3 +2,15 @@ The "environment_tools" library
 ===============================
 
 A source of truth for information about Yelp's environments.
+
+Generating The Mapping
+======================
+If you need to generate the location_mapping.yaml file (perhaps because you
+changed how Yelp lays out its machines), you must do the following:
+
+1. Ensure that you have a checkout of bind somewhere on the local machine
+2. Set the BIND_FILES environment variable to point to the location of the
+internal dns records. For example:
+    export BIND_FILES=~/pg/bind/zones.internal/
+3. Run `make mapping`
+4. Get the mapping reviewed, and commit it
