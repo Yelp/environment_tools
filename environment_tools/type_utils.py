@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
+import networkx as nx
 
 from environment_tools.config import _read_data_json
+from environment_tools.config import _convert_mapping_to_graph
 
 
 location_mapping = _read_data_json('location_mapping.json')
 location_types = _read_data_json('location_types.json')
+location_graph = _convert_mapping_to_graph(location_mapping)
 
 
 def available_location_types():
@@ -19,10 +22,27 @@ def available_location_types():
     return location_types
 
 
-def convert_location_type(location, location_type):
+def compare_types(typ_1, typ_2):
+    """ Compare the two provided location types
+
+    Types are considered 'more general' if they are higher up in the hierarchy.
+    For example:
+        compare_types('runtimeenv', 'habitat') # runtimeenvs contain habitats
+          -> negative number
+        compare_types('habitat', 'ecosystem') # habitats are contained by
+          -> positive number                  # ecosystems
+
+    :returns : A negative, zero, or positive number if typ_1 is more general,
+        equally general, or less general than typ_2.
+    """
+    i_1, i_2 = map(location_types.index, (typ_1, typ_2))
+    return i_1 - i_2
+
+
+def convert_location_type(location, source_type, desired_type):
     """ Converts the provided location into the desired location_type
 
-    This will perform a search on the Yelp datacenter graph to find connected
+    This will perform a DFS on the Yelp datacenter graph to find connected
     components to the supplied node and then filter by the desired
     location_type. Basically if we consider our datacenter layout a DAG, then
     this method will search any nodes connected to the source location looking
@@ -30,25 +50,42 @@ def convert_location_type(location, location_type):
 
     Examples:
     # convert a habitat to the containing ecosystem
-    convert_location_type('sfo1', 'ecosystem') -> ['prod']
+    convert_location_type('sfo1', 'habitat', 'ecosystem') -> ['prod']
     # convert a region to the member habitats
-    convert_location_type('sfo12', 'habitat') -> ['sfo1', 'sfo2']
+    convert_location_type('sfo12', 'region', 'habitat') -> ['sfo1', 'sfo2']
 
     :param location: A string that represents a yelp location, e.g. "devc"
-    :param location_type: A string that should exist inside the
+    :param source_type: A string that should exist inside the list returned
+        by available_location_types. This is the type of the provided location
+        and is optional. This exists because our DAG isn't exactly unique and
+        providing this type will disambiguate between which "devc" you mean
+        (ecoystem or habitat).
+    :param desired_type: A string that should exist inside the
         list returned by available_location_types. This is the desired type
         that the caller wants.
-
     :returns: locations, A list of locations that are of the location_type.
-        These will be connected components filtered by type.
+        These will be connected components filtered by type. Note that
+        these results are sorted for calling consistency before returning.
     :rtype: list of strings
     """
-    assert location_type in available_location_types()
-    return ["noop"]
+    search_node = '{0}_{1}'.format(location, source_type)
+
+    direction = compare_types(desired_type, source_type)
+    candidates = set()
+    if direction < 0:
+        # We are converting "up", and have to walk the tree backwards
+        reversed_graph = nx.reverse(location_graph)
+        candidates |= set(nx.dfs_preorder_nodes(reversed_graph, search_node))
+    else:
+        candidates |= set(nx.dfs_preorder_nodes(location_graph, search_node))
+
+    # Only return results that are of the correct type
+    result = filter(lambda x: x.endswith('_' + desired_type), candidates)
+    return sorted([loc[:loc.rfind('_')] for loc in result])
 
 
 def get_current_location(location_type):
-    """ Returns the current node's location that is of the specified type
+    """ Returns the local node's location that is of the specified type
 
     :param location_type: A string that should exist inside the list returned
         by available_location_types. e.g. "habitat"

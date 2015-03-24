@@ -12,6 +12,7 @@ setup(
     install_requires=[
         'argparse >= 1.3.0',
         'simplejson >= 2.1.0',
+        'networkx >= 1.9.1',
     ],
     entry_points={
         'console_scripts': []

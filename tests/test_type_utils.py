@@ -4,6 +4,7 @@ import mock
 
 from environment_tools.type_utils import available_location_types
 from environment_tools.type_utils import convert_location_type
+from environment_tools.type_utils import compare_types
 from environment_tools.type_utils import get_current_location
 
 from types import ListType
@@ -16,11 +17,31 @@ def test_available_location_types():
     assert len(location_types) > 0
 
 
-def test_convert_location_type():
-    down_convert = convert_location_type('prod', 'habitat')
+def test_compare_types():
+    assert compare_types('runtimeenv', 'habitat') < 0
+    assert compare_types('habitat', 'habitat') == 0
+    assert compare_types('habitat', 'region') > 0
+
+
+def test_down_convert():
+    down_convert = convert_location_type('prod', 'ecosystem', 'habitat')
     assert type(down_convert) is ListType
+    assert len(down_convert) > 1
     for result in down_convert:
         assert type(result) is StringType
+
+
+def test_up_convert():
+    up = convert_location_type('sfo2', 'habitat', 'ecosystem')
+    assert up == ['prod']
+
+    up = convert_location_type('sfo2', 'habitat', 'superregion')
+    assert up == ['norcal-prod']
+
+
+def test_same_convert():
+    same = convert_location_type('sfo2', 'habitat', 'habitat')
+    assert same == ['sfo2']
 
 
 def test_get_current_location():
