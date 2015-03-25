@@ -5,7 +5,7 @@ from setuptools import setup
 
 setup(
     name='environment_tools',
-    version='0.0.1',
+    version='0.0.2',
     description='Utilities for describing Yelp hardware environments',
     packages=['environment_tools'],
     setup_requires=['setuptools'],
