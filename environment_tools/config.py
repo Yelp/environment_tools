@@ -35,13 +35,6 @@ def _convert_mapping_to_graph(dict_mapping):
     # We don't have a "root" node at the top of the DAG,
     # so this just kicks off the recursive process
     for key, value in dict_mapping.iteritems():
-        if key == 'corp_runtimeenv':
-            # OPS-5947
-            # Corp has a duplicate devc ecosystem which causes the corp
-            # runtimeenv to intersect the dev runtimeenv, this is no good
-            # and as a temporary work around I am removing corp from the
-            # generated graph representation.
-            continue
         _visit(key, value)
 
     return graph

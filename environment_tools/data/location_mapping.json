@@ -1,14 +1,6 @@
 {
   "corp_runtimeenv": {
     "corp_ecosystem": {
-      "norcal-corp_superregion": {
-        "uswest1-corp_region": {
-          "uswest1bcorp_habitat": {},
-          "uswest1ccorp_habitat": {}
-        }
-      }
-    },
-    "dev_ecosystem": {
       "everywhere-corp_superregion": {
         "chi-corp_region": {
           "chicorp_habitat": {}
@@ -34,15 +26,17 @@
         "phx-corp_region": {
           "phxcorp_habitat": {}
         },
+        "sfo-corp_region": {
+          "sfocorp_habitat": {}
+        },
         "sfolab-corp_region": {
           "sfolabcorp_habitat": {}
         }
-      }
-    },
-    "devc_ecosystem": {
-      "everywhere-corp_superregion": {
-        "sfo-corp_region": {
-          "sfocorp_habitat": {}
+      },
+      "norcal-corp_superregion": {
+        "uswest1-corp_region": {
+          "uswest1bcorp_habitat": {},
+          "uswest1ccorp_habitat": {}
         }
       }
     }
@@ -206,6 +200,10 @@
       "pnw-stagea_superregion": {
         "slsea-stagea_region": {
           "stagea_habitat": {}
+        },
+        "uswest2-stagea_region": {
+          "uswest2astagea_habitat": {},
+          "uswest2bstagea_habitat": {}
         }
       }
     },
