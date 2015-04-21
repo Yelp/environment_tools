@@ -3,9 +3,11 @@
 
 from setuptools import setup
 
+from environment_tools import version
+
 setup(
     name='environment_tools',
-    version='1.0.1',
+    version=version,
     description='Utilities for describing Yelp hardware environments',
     packages=['environment_tools'],
     setup_requires=['setuptools'],
