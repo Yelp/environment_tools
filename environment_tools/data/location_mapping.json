@@ -76,7 +76,7 @@
           "useast1bdevc_habitat": {}
         }
       },
-      "nweu-devc_superregion": {
+      "eu-devc_superregion": {
         "euwest1-devc_region": {
           "euwest1adevc_habitat": {},
           "euwest1bdevc_habitat": {},
@@ -92,7 +92,7 @@
       }
     },
     "deveu_ecosystem": {
-      "nweu-deveu_superregion": {
+      "eu-deveu_superregion": {
         "eucentral1-deveu_region": {
           "eucentral1adeveu_habitat": {},
           "eucentral1bdeveu_habitat": {}
