@@ -31,6 +31,9 @@
         },
         "sfolab-corp_region": {
           "sfolabcorp_habitat": {}
+        },
+        "sfs-corp_region": {
+          "sfscorp_habitat": {}
         }
       },
       "norcal-corp_superregion": {
@@ -61,6 +64,13 @@
       }
     },
     "devc_ecosystem": {
+      "eu-deveu_superregion": {
+        "euwest1-deveu_region": {
+          "euwest1adevc_habitat": {},
+          "euwest1bdevc_habitat": {},
+          "euwest1cdevc_habitat": {}
+        }
+      },
       "norcal-devc_superregion": {
         "sf-devc_region": {
           "devc_habitat": {}
@@ -74,13 +84,6 @@
         "useast1-devc_region": {
           "useast1adevc_habitat": {},
           "useast1bdevc_habitat": {}
-        }
-      },
-      "eu-devc_superregion": {
-        "euwest1-devc_region": {
-          "euwest1adevc_habitat": {},
-          "euwest1bdevc_habitat": {},
-          "euwest1cdevc_habitat": {}
         }
       },
       "pnw-devc_superregion": {
@@ -149,11 +152,6 @@
       }
     },
     "prod_ecosystem": {
-      "deprecated-prod_superregion": {
-        "slwdc-prod_region": {
-          "slwdc_habitat": {}
-        }
-      },
       "eu-prod_superregion": {
         "eucentral1-prod_region": {
           "eucentral1aprod_habitat": {},
