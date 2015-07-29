@@ -12,7 +12,7 @@ setup(
     packages=['environment_tools'],
     setup_requires=['setuptools'],
     install_requires=[
-        'argparse >= 1.3.0',
+        'argparse >= 1.2.1',
         'simplejson >= 2.1.0',
         'networkx >= 1.9.1',
     ],
