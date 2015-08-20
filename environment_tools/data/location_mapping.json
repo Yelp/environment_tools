@@ -29,17 +29,22 @@
         "sfo-corp_region": {
           "sfocorp_habitat": {}
         },
+        "sfo2-corp_region": {
+          "sfo2corp_habitat": {}
+        },
         "sfolab-corp_region": {
           "sfolabcorp_habitat": {}
         },
         "sfs-corp_region": {
           "sfscorp_habitat": {}
         }
-      },
+      }
+    },
+    "corpprod_ecosystem": {
       "norcal-corp_superregion": {
         "uswest1-corp_region": {
-          "uswest1bcorp_habitat": {},
-          "uswest1ccorp_habitat": {}
+          "uswest1bcorpprod_habitat": {},
+          "uswest1ccorpprod_habitat": {}
         }
       }
     }
@@ -69,6 +74,14 @@
           "euwest1adevc_habitat": {},
           "euwest1bdevc_habitat": {},
           "euwest1cdevc_habitat": {}
+        }
+      },
+      "midw-devc_superregion": {
+        "guc1-devc_region": {
+          "guc1adevc_habitat": {},
+          "guc1bdevc_habitat": {},
+          "guc1cdevc_habitat": {},
+          "guc1fdevc_habitat": {}
         }
       },
       "norcal-devc_superregion": {
@@ -104,17 +117,11 @@
     },
     "testopia_ecosystem": {
       "everywhere-testopia_superregion": {
-        "bbsv-testopia_region": {
-          "bbsv_habitat": {}
-        },
         "slsea-testopia_region": {
           "sldev_habitat": {}
         },
         "slsjc-testopia_region": {
           "sjc_habitat": {}
-        },
-        "useast1-testopia_region": {
-          "useast1atestopia_habitat": {}
         },
         "uswest1-testopia_region": {
           "uswest1atestopia_habitat": {},
@@ -124,6 +131,13 @@
           "uswest2atestopia_habitat": {},
           "uswest2btestopia_habitat": {},
           "uswest2ctestopia_habitat": {}
+        }
+      },
+      "midw-testopia_superregion": {
+        "guc1-testopia_region": {
+          "guc1btestopia_habitat": {},
+          "guc1ctestopia_habitat": {},
+          "guc1ftestopia_habitat": {}
         }
       }
     }
@@ -156,6 +170,10 @@
         "eucentral1-prod_region": {
           "eucentral1aprod_habitat": {},
           "eucentral1bprod_habitat": {}
+        },
+        "euwest1-prod_region": {
+          "euwest1aprod_habitat": {},
+          "euwest1bprod_habitat": {}
         }
       },
       "norcal-prod_superregion": {
@@ -228,6 +246,9 @@
     },
     "stagef_ecosystem": {
       "norcal-stagef_superregion": {
+        "sfo12-stagef_region": {
+          "stagef_habitat": {}
+        },
         "uswest1-stagef_region": {
           "uswest1astagef_habitat": {},
           "uswest1cstagef_habitat": {}
@@ -243,6 +264,9 @@
     },
     "stageg_ecosystem": {
       "norcal-stageg_superregion": {
+        "sfo12-stageg_region": {
+          "stageg_habitat": {}
+        },
         "uswest1-stageg_region": {
           "uswest1astageg_habitat": {},
           "uswest1cstageg_habitat": {}
