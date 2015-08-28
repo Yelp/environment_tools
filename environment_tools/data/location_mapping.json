@@ -15,6 +15,7 @@
           "iadcorp_habitat": {}
         },
         "ldn-corp_region": {
+          "ldn1corp_habitat": {},
           "ldncorp_habitat": {}
         },
         "nyc-corp_region": {
@@ -69,13 +70,6 @@
       }
     },
     "devc_ecosystem": {
-      "euw-deveu_superregion": {
-        "euwest1-deveu_region": {
-          "euwest1adevc_habitat": {},
-          "euwest1bdevc_habitat": {},
-          "euwest1cdevc_habitat": {}
-        }
-      },
       "midw-devc_superregion": {
         "guc1-devc_region": {
           "guc1adevc_habitat": {},
@@ -112,6 +106,13 @@
         "eucentral1-deveu_region": {
           "eucentral1adeveu_habitat": {},
           "eucentral1bdeveu_habitat": {}
+        }
+      },
+      "euw-deveu_superregion": {
+        "euwest1-deveu_region": {
+          "euwest1adeveu_habitat": {},
+          "euwest1bdeveu_habitat": {},
+          "euwest1cdeveu_habitat": {}
         }
       }
     },
