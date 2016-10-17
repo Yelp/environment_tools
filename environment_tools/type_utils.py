@@ -6,9 +6,27 @@ from environment_tools.config import _read_data_json
 from environment_tools.config import _convert_mapping_to_graph
 
 
-def location_graph():
+# See https://github.com/Yelp/environment_tools/issues/2, for reasons that
+# are unclear, creating the DiGraph on every call to this function has
+# been observed to cause application memory leaks. It's probably wrong to
+# do this work on every call to location_graph anyways, so let's just cache it
+# This cache takes the form of a tuple(dict, DiGraph) so that if the json
+# changes we can invalidate the cache immediately.
+_location_graph_cache = (None, None)
+
+
+def location_graph(use_cache=True):
+    global _location_graph_cache
+
     location_mapping = _read_data_json('location_mapping.json')
-    return _convert_mapping_to_graph(location_mapping)
+    if not use_cache:
+        return _convert_mapping_to_graph(location_mapping)
+
+    if (_location_graph_cache[0] != location_mapping):
+        _location_graph_cache = (
+            location_mapping, _convert_mapping_to_graph(location_mapping)
+        )
+    return _location_graph_cache[1]
 
 
 def available_location_types():
