@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collections import namedtuple
 import os
 import networkx as nx
 
@@ -12,7 +13,8 @@ from environment_tools.config import _convert_mapping_to_graph
 # do this work on every call to location_graph anyways, so let's just cache it
 # This cache takes the form of a tuple(dict, DiGraph) so that if the json
 # changes we can invalidate the cache immediately.
-_location_graph_cache = (None, None)
+GraphCache = namedtuple('GraphCache', ('source', 'graph'))
+_location_graph_cache = GraphCache(None, None)
 
 
 def location_graph(use_cache=True):
@@ -22,11 +24,12 @@ def location_graph(use_cache=True):
     if not use_cache:
         return _convert_mapping_to_graph(location_mapping)
 
-    if (_location_graph_cache[0] != location_mapping):
-        _location_graph_cache = (
-            location_mapping, _convert_mapping_to_graph(location_mapping)
+    if (_location_graph_cache.source != location_mapping):
+        _location_graph_cache = GraphCache(
+            source=location_mapping,
+            graph=_convert_mapping_to_graph(location_mapping)
         )
-    return _location_graph_cache[1]
+    return _location_graph_cache.graph
 
 
 def available_location_types():
