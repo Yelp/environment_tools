@@ -3,10 +3,13 @@
 import contextlib
 import mock
 
+from environment_tools.config import _convert_mapping_to_graph
+import environment_tools.type_utils
 from environment_tools.type_utils import available_location_types
 from environment_tools.type_utils import convert_location_type
 from environment_tools.type_utils import compare_types
 from environment_tools.type_utils import get_current_location
+from environment_tools.type_utils import location_graph
 
 from types import ListType
 from types import StringType
@@ -41,7 +44,22 @@ class TestTypeUtils:
         }
         with mock.patch('environment_tools.type_utils._read_data_json',
                         side_effect=fake_data.get) as mock_fake_data:
+            empty_graph = environment_tools.type_utils.GraphCache(None, None)
+            environment_tools.type_utils._location_graph_cache = empty_graph
             yield mock_fake_data
+            environment_tools.type_utils._location_graph_cache = empty_graph
+
+    def test_location_graph_cache(self, mock_data):
+        mock_convert = mock.Mock(spec=_convert_mapping_to_graph)
+        mock_convert.return_value = 'fake_graph'
+        with mock.patch(
+                'environment_tools.type_utils._convert_mapping_to_graph',
+                mock_convert):
+            for i in range(5):
+                assert location_graph() == 'fake_graph'
+            assert mock_convert.call_count == 1
+            assert location_graph(use_cache=False) == 'fake_graph'
+            assert mock_convert.call_count == 2
 
     def test_available_location_types(self, mock_data):
         location_types = available_location_types()
