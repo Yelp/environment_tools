@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-
-import contextlib
 import mock
+import six
 
 from environment_tools.config import _convert_mapping_to_graph
 import environment_tools.type_utils
@@ -10,9 +9,6 @@ from environment_tools.type_utils import convert_location_type
 from environment_tools.type_utils import compare_types
 from environment_tools.type_utils import get_current_location
 from environment_tools.type_utils import location_graph
-
-from types import ListType
-from types import StringType
 
 from pytest import yield_fixture
 
@@ -63,7 +59,7 @@ class TestTypeUtils:
 
     def test_available_location_types(self, mock_data):
         location_types = available_location_types()
-        assert type(location_types) is ListType
+        assert isinstance(location_types, list)
         assert len(location_types) > 0
 
     def test_compare_types(self, mock_data):
@@ -73,10 +69,10 @@ class TestTypeUtils:
 
     def test_down_convert(self, mock_data):
         down_convert = convert_location_type('prod', 'environment', 'az')
-        assert type(down_convert) is ListType
+        assert isinstance(down_convert, list)
         assert len(down_convert) > 1
         for result in down_convert:
-            assert type(result) is StringType
+            assert isinstance(result, str)
 
     def test_up_convert(self, mock_data):
         up = convert_location_type('usnorth1bprod', 'az', 'environment')
@@ -92,7 +88,10 @@ class TestTypeUtils:
     def test_get_current_location(self, mock_data):
         mock_open = mock.mock_open(read_data='test   ')
 
-        with contextlib.nested(
-            mock.patch('__builtin__.open', mock_open),
-        ):
+        if six.PY2:
+            open_module = '__builtin__.open'
+        else:
+            open_module = 'builtins.open'
+
+        with mock.patch(open_module, mock_open):
             assert get_current_location('az') == 'test'

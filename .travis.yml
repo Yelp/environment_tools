@@ -1,16 +1,13 @@
 language: python
 # We use the built-in tox matrix capabilities instead of matrixing on different
 # python versions directly.
-python: 
+python:
   - 2.7
 install:
   - pip install tox
 script:
   - tox
 env:
+  - TOXENV=py26
   - TOXENV=py27
   - TOXENV=py34
-
-matrix:
-  allow_failures:
-  - env: TOXENV=py34
