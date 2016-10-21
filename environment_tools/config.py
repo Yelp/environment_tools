@@ -31,12 +31,14 @@ def _convert_mapping_to_graph(dict_mapping):
     def _visit(root, subdict):
         edges = [(root, key) for key in subdict]
         graph.add_edges_from(edges)
-        for key, value in subdict.iteritems():
+        for key in subdict:
+            value = subdict[key]
             _visit(key, value)
 
     # We don't have a "root" node at the top of the DAG,
     # so this just kicks off the recursive process
-    for key, value in dict_mapping.iteritems():
+    for key in dict_mapping:
+        value = dict_mapping[key]
         _visit(key, value)
 
     return graph

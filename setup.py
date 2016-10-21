@@ -15,6 +15,7 @@ setup(
         'argparse >= 1.2.1',
         'simplejson >= 2.1.0',
         'networkx == 1.9.1',
+        'six'
     ],
     entry_points={
         'console_scripts': []
