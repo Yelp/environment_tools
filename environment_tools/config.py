@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
+import json
 import os
-
-import simplejson as json
 
 import networkx as nx
 
