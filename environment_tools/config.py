@@ -4,11 +4,19 @@ import os
 
 import networkx as nx
 
-DATA_DIRECTORY = '/nail/etc/services'
+DATA_DIRECTORY = '/etc/yelp_location'
+OVERRIDE_DATA_DIRECTORY = '/nail/etc/services'
 
 
+# FIXME - we're moving from distributing location information
+#         via our configs system to via just baking the package
+#         into AMIs, but to do that we want to be able to read
+#         both whilst we transition - with the existing mechanism
+#         taking preference
 def _read_data_json(filename):
-    path = os.path.join(DATA_DIRECTORY, filename)
+    path = os.path.join(OVERRIDE_DATA_DIRECTORY, filename)
+    if not os.path.isfile(path):
+        path = os.path.join(DATA_DIRECTORY, filename)
     with open(path) as f:
         return json.load(f)
 
