@@ -4,7 +4,7 @@ import os
 
 import networkx as nx
 
-DATA_DIRECTORY = '/etc/yelp_location'
+DATA_DIRECTORY = '/usr/share/yelp_location'
 OVERRIDE_DATA_DIRECTORY = '/nail/etc/services'
 
 
