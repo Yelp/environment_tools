@@ -3,3 +3,5 @@ flake8
 mock
 pytest
 six
+# For python3.5 compatibility
+zipp<3.1.0
