@@ -2,9 +2,7 @@
 
 BIND_FILES ?= undefined
 
-all: production
-
-production:
+all:
 	@true
 
 docs:
